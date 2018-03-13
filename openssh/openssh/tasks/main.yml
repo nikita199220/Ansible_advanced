@@ -1,0 +1,19 @@
+- name: Install openssh
+  win_chocolatey:
+    name: "{{package_name}}"
+    state: present
+    params: "{{parameters}}"
+- name: Set service startup mode to auto and ensure it is started
+  win_service:
+    name: "{{service_name}}"
+    start_mode: auto
+    state: started
+- name: Firewall rule to allow SMTP on TCP port 25
+  win_firewall_rule:
+    name: "{{service_name}}"
+    localport: "{{local_port}}"
+    action: allow
+    direction: in
+    protocol: "{{protocol_name}}"
+    state: present
+    enabled: yes

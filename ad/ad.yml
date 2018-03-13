@@ -1,0 +1,5 @@
+---
+- hosts: windows
+  remote_user:  root
+  roles: 
+    - win_ad_install

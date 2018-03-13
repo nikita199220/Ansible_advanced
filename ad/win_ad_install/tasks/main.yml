@@ -1,0 +1,25 @@
+- win_reboot:
+- name: Install AD
+  win_feature:
+    name: AD-Domain-Services
+    state: present
+- win_reboot:
+
+#- win_domain:
+#    dns_domain_name: ad1.dc0c.example.opentlc.com
+#    safe_mode_password: jVMijRwLbI02gFCo2xkjlZ9lxEA7bm7zgg==
+#  register: result
+#  changed_when: false
+- win_domain_membership:
+    dns_domain_name:  ad1.dc0c.example.opentlc.com
+    domain_admin_user: "admin@{{ ad_domain_name}}"
+    domain_admin_password: jVMijRwLbI02gFCo2xkjlZ9lxEA7bm7zgg==
+    state: domain
+  register: domain_state
+
+- win_reboot:
+
+#- shell: nltest /dclist:"{{ ad_domain_name }}"
+- win_shell: echo %HOMEDIR%
+  args:
+    executable: cmd nltest /dclist:"{{ ad_domain_name }}"
