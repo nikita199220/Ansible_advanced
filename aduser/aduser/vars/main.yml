@@ -1,0 +1,5 @@
+user_info:
+  - { name: 'James' , firstname: 'James' , surname: 'Jockey' , password: 'redhat@123' , email: 'james@ad1.${guid}.example.opentlc.com' }
+  - { name: 'Bill' , firstname: 'Bill' , surname: 'Gates' , password: 'redhat@123' , email: 'bill@ad1.${guid}.example.opentlc.com' }
+  - { name: 'mickey' , firstname: 'Mickey' , surname: 'Mouse' , password: 'redhat@123' , email: 'mickey@ad1.${guid}.example.opentlc.com' }
+  - { name: 'donald' , firstname: 'Donald' , surname: 'Duck' , password: 'redhat@123' , email: 'donald@ad1.${guid}.example.opentlc.com' }
